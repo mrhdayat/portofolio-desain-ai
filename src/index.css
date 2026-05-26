@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+:root {
+  /* Quiet Luxury Warm Stone Paper Canvas */
+  --bg-primary: #f2f0ec;
+  --bg-secondary: #e8e6e1;
+  --bg-panel: #faf9f6;
+  --text-primary: #111112;
+  --text-secondary: #5e5e60;
+  --accent: #9a8264;
+  --accent-hover: #7b664d;
+  --border-primary: rgba(17, 17, 18, 0.08);
+}
+
+[data-theme="dark"] {
+  /* Obsidian Ink Black Canvas */
+  --bg-primary: #0d0d0e;
+  --bg-secondary: #161618;
+  --bg-panel: #121213;
+  --text-primary: #f5f5f7;
+  --text-secondary: #929296;
+  --accent: #d2baa0;
+  --accent-hover: #e5cfb8;
+  --border-primary: rgba(245, 245, 247, 0.08);
+}
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+  
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-panel: var(--bg-panel);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-border-primary: var(--border-primary);
+
+  /* Fallback aliases to preserve compilation integrity across existing code */
+  --color-acid: var(--accent);
+  --color-cyan-glow: var(--accent-hover);
+  --color-crimson: var(--accent);
+  --color-brutal-black: var(--bg-primary);
+  --color-brutal-charcoal: var(--bg-secondary);
+  --color-brutal-white: var(--text-primary);
+  --color-brutal-silver: var(--text-secondary);
+  
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 35s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Global Reset & High-Craft Atmosphere */
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Selection Highlight matches Quiet Luxury gold */
+::selection {
+  background-color: rgba(154, 130, 100, 0.25);
+  color: var(--text-primary);
+}
+
+/* Ultra-Slim Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  opacity: 0.15;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* === MUSEUM-GRADE EDITORIAL LINES & UTILITIES === */
+
+/* Overwrite brutalist 3px boxes with clean 0.5px thin borders */
+.border-brutal, .border-brutal-thick, .border-brutal-dark, .border-aristide {
+  border: 0.5px solid var(--border-primary);
+}
+
+.border-b-aristide, .border-b-brutal {
+  border-bottom: 0.5px solid var(--border-primary);
+}
+
+.border-r-aristide {
+  border-right: 0.5px solid var(--border-primary);
+}
+
+/* Clear brutalist solid offset shadows */
+.shadow-brutal-black, .shadow-brutal-white, .shadow-brutal-acid, .shadow-brutal-cyan, .shadow-brutal-crimson {
+  box-shadow: none !important;
+}
+
+/* Pure Subtle Screenprint Canvas Texture */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 40;
+}
+
+/* Elegant Fine-Double Borders */
+.fine-double-border {
+  position: relative;
+  border: 0.5px solid var(--border-primary);
+}
+.fine-double-border::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 0.5px solid var(--border-primary);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Asymmetrical Spacing Spans */
+.asymmetric-col-1 { margin-left: 5%; }
+.asymmetric-col-2 { margin-left: 12%; }
+.asymmetric-col-3 { margin-left: 20%; }
+
+/* Obys Elegant Huge Typography */
+.text-editorial-huge {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 8.5vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 300;
+}
+
+.transition-aristide {
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hide cyber layout overlays */
+.cyber-grid, .scanlines, .crop-mark, .sticker-tag {
+  display: none !important;
+}
+
+/* Liquid Editorial Project Row */
+.editorial-project-row {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.editorial-project-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.5px;
+  background-color: var(--text-primary);
+  opacity: 0.08;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.editorial-project-row:hover::before {
+  opacity: 0.35;
+}
+
+/* Modern Rendering Optimization for Heavy Content */
+.optimize-rendering-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
+}
+
+/* Pristine Accessible Keyboard Focus Indicator (Quiet Luxury Gold outline) */
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Force Hardware GPU Acceleration to secure 60fps animations */
+.will-change-gpu {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
